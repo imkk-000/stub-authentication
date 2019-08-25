@@ -2,16 +2,16 @@ package service
 
 import "errors"
 
-type LoginService interface {
+type ILoginService interface {
 	CheckLogin(username, password string) error
 }
 
-type LoginServiceImpl struct{}
+type LoginService struct{}
 
 const fakeUsername = "imkk-000"
 const fakePassword = "1mkkn@ja*"
 
-func (LoginServiceImpl) CheckLogin(username, password string) error {
+func (LoginService) CheckLogin(username, password string) error {
 	if username != fakeUsername && username != fakePassword {
 		return errors.New("not existing username")
 	}

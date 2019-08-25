@@ -9,7 +9,7 @@ import (
 )
 
 type LoginAPI struct {
-	LoginService service.LoginService
+	LoginService service.ILoginService
 }
 
 func (api LoginAPI) HandleFunc(c *gin.Context) {
