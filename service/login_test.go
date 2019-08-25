@@ -9,23 +9,21 @@ import (
 
 func TestCheckLoginFailedWithNotExistingUsername(t *testing.T) {
 	loginService := &LoginServiceImpl{}
-	loginStatus, err := loginService.CheckLogin("fakeusername", "noempty")
+	err := loginService.CheckLogin("fakeusername", "noempty")
 
-	assert.False(t, loginStatus)
 	assert.EqualError(t, err, "not existing username")
 }
 
 func TestCheckLoginFailedWithWrongPassword(t *testing.T) {
 	loginService := &LoginServiceImpl{}
-	loginStatus, err := loginService.CheckLogin("imkk-000", "wrongP@ssw0rd")
+	err := loginService.CheckLogin("imkk-000", "wrongP@ssw0rd")
 
-	assert.False(t, loginStatus)
 	assert.EqualError(t, err, "wrong password")
 }
 
 func TestCheckLoginPassed(t *testing.T) {
 	loginService := &LoginServiceImpl{}
-	loginStatus, _ := loginService.CheckLogin("imkk-000", "1mkkn@ja*")
+	err := loginService.CheckLogin("imkk-000", "1mkkn@ja*")
 
-	assert.True(t, loginStatus)
+	assert.Nil(t, err)
 }
