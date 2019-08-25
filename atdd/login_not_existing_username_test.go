@@ -10,7 +10,7 @@ import (
 )
 
 func TestLoginFailedWithNotExistingUsername(t *testing.T) {
-	expectedRespBody := []byte(`{"status": "not existing username"}`)
+	expectedRespBody := []byte(`{"status":"not existing username"}`)
 	reqBody := url.Values{}
 	reqBody.Add("username", "fakeusername")
 	reqBody.Add("password", "notempty")

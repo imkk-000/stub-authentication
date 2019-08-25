@@ -10,7 +10,7 @@ import (
 )
 
 func TestLoginFailedWithWrongPassword(t *testing.T) {
-	expectedRespBody := []byte(`{"status": "wrong password"}`)
+	expectedRespBody := []byte(`{"status":"wrong password"}`)
 	reqBody := url.Values{}
 	reqBody.Add("username", "imkk-000")
 	reqBody.Add("password", "wrongP@ssw0rd")
