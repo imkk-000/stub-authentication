@@ -3,7 +3,7 @@ package service
 import "errors"
 
 type LoginService interface {
-	CheckLogin(username, password string) (bool, error)
+	CheckLogin(username, password string) error
 }
 
 type LoginServiceImpl struct{}
@@ -11,16 +11,16 @@ type LoginServiceImpl struct{}
 const fakeUsername = "imkk-000"
 const fakePassword = "1mkkn@ja*"
 
-func (LoginServiceImpl) CheckLogin(username, password string) (bool, error) {
+func (LoginServiceImpl) CheckLogin(username, password string) error {
 	if username != fakeUsername && username != fakePassword {
-		return false, errors.New("not existing username")
+		return errors.New("not existing username")
 	}
 	if username == fakeUsername {
 		if password != fakePassword {
-			return false, errors.New("wrong password")
+			return errors.New("wrong password")
 		} else {
-			return true, nil
+			return nil
 		}
 	}
-	return false, errors.New("unknow types")
+	return errors.New("unknow types")
 }
