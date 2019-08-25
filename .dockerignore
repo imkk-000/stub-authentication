@@ -1,0 +1,7 @@
+script
+atdd
+bin
+pkg
+
+*.md
+*_test.go
